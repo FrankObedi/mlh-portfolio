@@ -127,3 +127,20 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+.img-container {
+    display:flex;
+    justify-content: center;
+}
+.hobby img {
+    width: 40%;
+    min-width: 320px;
+    border-radius: 2rem;
+}
+
+.hobby ul {
+    list-style: none;
+  }
+  
+.hobby ul li:before {
+    content: '✓ ';
+  }
