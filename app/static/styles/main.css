@@ -4,8 +4,13 @@ h1, h2, h3, h4, h5, h6, button {
 p {
     font-family:'Courier New', Courier, monospace;
     font-size: 1.4rem;
-    text-indent: 1rem;
-    
+    text-indent: 1rem;   
+}
+ul {
+    margin-bottom:1rem;
+}
+li {
+    font-size: 1.2rem;
 }
 
 .accent {
@@ -22,6 +27,7 @@ body {
     overflow-x: hidden;
     font-family: "Roboto", serif;
     margin: 0px;
+    margin-bottom: 5rem;
 }
 
 .nav-bar {
@@ -90,13 +96,17 @@ body {
     height: 200px;
 }
 
-.about {
+.container {
     width:80%;
     margin: auto;
     
 }
-.about h2{
+.container h2{
     font-style:italic;
+}
+
+.year {
+    color:#40475275;
 }
 
 .banner {
