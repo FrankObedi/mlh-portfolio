@@ -7,6 +7,7 @@ p {
     text-indent: 1rem;   
 }
 ul {
+    margin-top: 0.5rem;
     margin-bottom:1rem;
 }
 li {
@@ -144,3 +145,11 @@ body {
 .hobby ul li:before {
     content: '✓ ';
   }
+
+.education ul {
+   list-style: none;
+}
+.education ul li {
+    margin-bottom:1rem;
+}
+  
