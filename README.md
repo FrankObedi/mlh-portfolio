@@ -11,7 +11,7 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 *Note: Make sure to include a link to the Issue you're progressing on inside of your Pull Request so your reviewer knows what you're progressing on!*
 
 ### GitHub Tasks
-- [ ] Create Issues for each task below
+- [x] Create Issues for each task below
 - [ ] Progress on each task in a new branch
 - [ ] Open a Pull Request when a task is finished to get feedback
 
@@ -24,7 +24,7 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 - [ ] Add a map of all the cool locations/countries you visited
 
 ### Flask Tasks
-- [ ] Get your Flask app running locally on your machine using the instructions below.
+- [x] Get your Flask app running locally on your machine using the instructions below.
 - [ ] Add a template for adding multiple work experiences/education/hobbies using [Jinja](https://jinja.palletsprojects.com/en/3.0.x/api/#basics)
 - [ ] Create a new page to display hobbies.
 - [ ] Add a menu bar that dynamically displays other pages in the app
