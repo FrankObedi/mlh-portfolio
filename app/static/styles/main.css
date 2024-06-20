@@ -132,19 +132,35 @@ body {
     display:flex;
     justify-content: center;
 }
-.hobby img {
-    width: 40%;
-    min-width: 320px;
-    border-radius: 2rem;
-}
 
+
+/* -- hobbies section styles -- */
 .hobby ul {
     list-style: none;
-  }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
   
-.hobby ul li:before {
-    content: '✓ ';
-  }
+.hobby ul .card{
+    display: flex;
+    flex-direction: column; 
+    border-radius: 1.2rem 1.2rem 0 0;
+    overflow: hidden;
+}
+
+.hobby ul .card .description{
+    background: #1C539F;
+    color: white;
+    padding: 0.5rem;
+}
+
+.card img{
+    width: 40%;
+    min-width: 250px;
+    width: 100%;
+}
+
 
 .education ul {
    list-style: none;
@@ -152,4 +168,18 @@ body {
 .education ul li {
     margin-bottom:1rem;
 }
-  
+
+
+/* large screen */
+@media screen and (min-width: 1200px){
+    .hobby ul {
+        grid-template-columns: repeat(3, 1fr); /* display 3 hobbies per row */
+    }
+}
+
+/* mobile screen */
+@media screen and (max-width: 600px){
+    .hobby ul {
+        grid-template-columns: 1fr; /* display 1 hobby per row */
+    }
+}
