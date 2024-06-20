@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block proile %}
+    <div class="profile">
+        <div id="profile-picture" class="profile-picture">
+            <img src="./static/img/satoshi.webp" alt="Satoshi's profile">
+        </div>
+        <h1>{{ title }}</h1>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="hobby container">
+        <ul>
+            {% for hobby in hobbies %}
+                <li class="card">
+                    <img src="{{ hobby['img_path'] }}" alt="{{ hobby['img_alt_text'] }}"/>
+                    <span class="description">{{ hobby["description"] }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock%}

@@ -139,12 +139,14 @@ body {
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: end;
     gap: 2rem;
 }
   
 .hobby ul .card{
     display: flex;
     flex-direction: column; 
+    flex-wrap: wrap;
     border-radius: 1.2rem 1.2rem 0 0;
     overflow: hidden;
 }
