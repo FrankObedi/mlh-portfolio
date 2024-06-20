@@ -16,10 +16,11 @@
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
-    <title>{{ title }}</title>
+    <title>{% block title %}{% endblock %}{{ title }}</title>
 </head>
 
 <body>
+    {% block nav %}
     <header class="nav-bar">
         <div class="nav-content">
             <a href="/">
@@ -29,13 +30,18 @@
             </a>
         </div>
     </header>
+    {% endblock %}
 
+    {% block proile %}
     <div class="profile">
         <div id="profile-picture" class="profile-picture">
             <img src="./static/img/satoshi.webp" alt="Satoshi's profile">
         </div>
         <h1>{{ title }} <br> Satoshi S.</h1>
     </div>
+    {% endblock %}
+
+    {% block content %}
     <div class="about container">
         <h2>About Myself</h2>
         <p><span class="accent">S</span>atoshi is a full-stack developer, who is looking for opportunities to learn something new. He enjoys collaborating with other developers in open source ecosystems.</p>
@@ -59,6 +65,7 @@
         </ul>
     </div>
 
+    
     <div class="hobby container">
         <h2>My Hobbies</h2>
         <ul>
@@ -70,6 +77,7 @@
             {% endfor %}
         </ul>
     </div>
+    
 
     <div class="map container">
         <h2>Map of places I've been</h2>
@@ -90,5 +98,7 @@
             {% endfor %}
         </ul>
     </div>
+
+    {% endblock %}
 </body>
 </html>
