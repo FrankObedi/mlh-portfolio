@@ -40,61 +40,54 @@
         <h2>About Myself</h2>
         <p><span class="accent">S</span>atoshi is a full-stack developer, who is looking for opportunities to learn something new. He enjoys collaborating with other developers in open source ecosystems.</p>
     </div>
+
     <div class="work container">
         <h2>Work Experiences</h2>
         <ul>
-            <li>
-                <strong>Frontend Developer</strong>
-                <br>Ori.Gatou Creative Solution Inc. - Apprenticeship
-                <br><span class="year">2024 Jan - 2024 Apr</span>
-                <ul>
-                    <li>Created reactive data analytics dashboard with Svelte and D3.js.</li>
-                    <li>Integrated a backend API to fetch data with the front end.</li>
-                </ul>
-            </li>
-            <li>
-
-                <strong>React Teaching Assistant</strong>
-                <br>ComIT
-                <br><span class="year">2023 Sep - 2023 Dec</span>
-                <ul>
-                    <li>Provide additional assistance to students in troubleshooting, understanding course materials, and completing assignments through chat and video calls.</li>
-                    <li>Maintain attendance records and communicate with the instructor and program coordinators to address student absences and issues related to class participation.</li>
-                </ul>
-            </li>
+            {% for experience in work_experiences %}
+                <li>
+                    <strong>{{ experience["position"] }}</strong>
+                    <br>{{ experience["company"] }}
+                    <br><span class="year">{{ experience["date"] }}</span>
+                    <ul>
+                        {% for detail in experience["detail"] %}
+                            <li>{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
         </ul>
     </div>
+
     <div class="hobby container">
         <h2>My Hobbies</h2>
-        <div class="img-container">
-            <img src="./static/img/piano-man.jpg" alt="Playing the public piano">
-        </div>
         <ul>
-            <li>Making Music with Guitar and Piano</li>
-            <li>Shogi - Japanese Chess</li>
+            {% for hobby in hobbies %}
+                <li class="card">
+                    <img src="{{ hobby['img_path'] }}" alt="{{ hobby['img_alt_text'] }}"/>
+                    <span class="description">{{ hobby["description"] }}</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 
     <div class="map container">
         <h2>Map of places I've been</h2>
         <div class="map-ifram-contianer">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1u4FXRh0NtMqyJlCkkrvBC0XDuuLpEB4&ehbc=2E312F&hl=en" width="640" height="480" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/d/embed?mid=1u4FXRh0NtMqyJlCkkrvBC0XDuuLpEB4&ehbc=2E312F" width="640" height="480" ></iframe>
         </div>
     </div>
 
     <div class="education container">
         <h2>Education</h2>
         <ul>
-            <li>
-                <strong>Node Js Course</strong>
-                <br>ComIT
-                <br><span class="year">2023 Jun - 2023 Sep</span>
-            </li>
-            <li>
-                <strong>Economics, Economics and Management</strong>
-                <br>Osaka University
-                <br><span class="year">2010 Apr - 2014 Mar</span>
-            </li>
+            {% for experience in education %}
+                <li>
+                    <strong>{{ experience["program"] }}</strong>
+                    <br>{{ experience["institution"] }}
+                    <br><span class="year">{{ experience["date"] }}</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 </body>
