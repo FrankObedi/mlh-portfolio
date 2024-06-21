@@ -23,11 +23,25 @@
     {% block nav %}
     <header class="nav-bar">
         <div class="nav-content">
+            <button class="nav-toggle hidden">
+                <span class="top-bar"></span>
+                <span class="mid-bar"></span>
+                <span class="bottom-bar"></span>
+            </button>
             <a href="/">
                 <div class="nav-logo">
                     <img src="./static/img/logo.svg" />
                 </div>
             </a>
+            <nav class="menu-bar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about-me">About</a></li>
+                    <li class="nav-item"><a href="#work-experience">Work Experience</a></li>
+                    <li class="nav-item"><a href="#hobbies">Hobbies</a></li>
+                    <li class="nav-item"><a href="#travel-map">Travel Map</a></li>
+                    <li class="nav-item"><a href="#education">Education</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     {% endblock %}
@@ -42,12 +56,12 @@
     {% endblock %}
 
     {% block content %}
-    <div class="about container">
+    <div id="about-me" class="about container">
         <h2>About Myself</h2>
         <p><span class="accent">S</span>atoshi is a full-stack developer, who is looking for opportunities to learn something new. He enjoys collaborating with other developers in open source ecosystems.</p>
     </div>
 
-    <div class="work container">
+    <div id="work-experience" class="work container">
         <h2>Work Experiences</h2>
         <ul>
             {% for experience in work_experiences %}
@@ -66,7 +80,7 @@
     </div>
 
     
-    <div class="hobby container">
+    <div id="hobbies" class="hobby container">
         <h2>My Hobbies</h2>
         <ul>
             {% for hobby in hobbies %}
@@ -79,14 +93,14 @@
     </div>
     
 
-    <div class="map container">
+    <div id="travel-map" class="map container">
         <h2>Map of places I've been</h2>
         <div class="map-ifram-contianer">
             <iframe src="https://www.google.com/maps/d/embed?mid=1u4FXRh0NtMqyJlCkkrvBC0XDuuLpEB4&ehbc=2E312F" width="640" height="480" ></iframe>
         </div>
     </div>
 
-    <div class="education container">
+    <div id="education" class="education container">
         <h2>Education</h2>
         <ul>
             {% for experience in education %}
@@ -100,5 +114,8 @@
     </div>
 
     {% endblock %}
+
+    <!-- Script tag to include main.js -->
+    <script src="../static/scritps/main.js"></script>
 </body>
 </html>
