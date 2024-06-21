@@ -27,7 +27,7 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 - [x] Get your Flask app running locally on your machine using the instructions below.
 - [x] Add a template for adding multiple work experiences/education/hobbies using [Jinja](https://jinja.palletsprojects.com/en/3.0.x/api/#basics)
 - [x] Create a new page to display hobbies.
-- [ ] Add a menu bar that dynamically displays other pages in the app
+- [x] Add a menu bar that dynamically displays other pages in the app
 
 
 ## Getting Started
