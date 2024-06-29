@@ -38,7 +38,7 @@ hobbies = [
     },
     {
         "description": "Canoeing on the lake is one of my favorite ways to relax.",
-        "img_path": "./static/img/canoeing_2.jpg",
+        "img_path": "./static/img/canoeing.jpg",
         "img_alt_text":"Shogi board game"
     },
     {
