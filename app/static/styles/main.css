@@ -160,6 +160,10 @@ body {
     height: 200px;
 }
 
+.sub-head{
+    font-size: 2rem;
+}
+
 .container {
     width:80%;
     margin: auto;

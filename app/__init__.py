@@ -8,61 +8,51 @@ app = Flask(__name__)
 
 work_experiences = [
     {
-        "position": "Frontend Developer",
-        "company": "Ori.Gatou Creative Solution Inc. - Apprenticeship",
-        "date": "2023 Jul - 2023 Sep",
-        "detail": ["Created reactive data analytics dashboard with Svelte and D3.js.",
-                "Integrated a backend API to fetch data with the front end."]
-    },
-    {
-        "position": "React Teaching Assistant",
-        "company": "ComIT",
-        "date": "2023 Sep - 2023 Dec",
-        "detail": ["Provide additional assistance to students in troubleshooting, understanding course materials, and completing assignments through chat and video calls.",
-                "Maintain attendance records and communicate with the instructor and program coordinators to address student absences and issues related to class participation."]
-    },
-    {
         "position": "Web Dev Intern",
         "company": "North York Arts",
-        "date": "2023 Jul - 2023 Sep",
+        "date": "Jul 2023 - Sep 2023",
         "detail": ["Contributed to the successful launch of a website rebrand by implementing design concepts, resulting in improved aesthetics and user experience.",
                 "Optimized website performance by minimizing page load times, resulting in an improved user experience and increase in user engagement."]
-    }     
+    },
+    {
+        "position": "Frontend Developer Intern",
+        "company": "Danforth Collegiate and Technical Institute.",
+        "date": "Jun 2020 - Aug 2020",
+        "detail": ["Collaborated in a team of three to develop, test, and deploy an online art gallery website, enabling high school students to showcase their artworks online during the pandemic.",
+                "Utilized HTML, CSS3, and JavaScript web technologies to build the user interface.",
+                "Enhanced user experience by implementing search, filter, and pagination features, facilitating easier artwork discovery on the website."]
+    }
+         
 ]
 
 hobbies = [
     {
-        "description": "Making Music with Guitar and Piano",
-        "img_path": "./static/img/piano-man.jpg",
-        "img_alt_text":"Playing the public piano"
+        "description": "Exercise offers many benefits that can improve nearly every aspect of your health.",
+        "img_path": "./static/img/gym.jpg",
+        "img_alt_text":"Going to the Gym"
     },
     {
-        "description": "Soccer is the greatest sport in the world!",
+        "description": "I love playing soccer. It's the greatest sport in the world!",
         "img_path": "./static/img/greatest-sport.jpg",
         "img_alt_text":"Soccer ball on field"
     },
     {
-        "description": "Shogi - Japanese Chess",
-        "img_path": "./static/img/shogi-game.jpg",
+        "description": "Canoeing on the lake is one of my favorite ways to relax.",
+        "img_path": "./static/img/canoeing.jpg",
+        "img_alt_text":"Shogi board game"
+    },
+    {
+        "description": "Being outdoors, going on hikes and exploring nature is just a part of my identity.",
+        "img_path": "./static/img/hiking.jpg",
         "img_alt_text":"Shogi board game"
     }
 ]
 
 education = [
     {
-        "institution": "ComIT",
-        "program": "Node Js Course",
-        "date": "2023 Jun - 2023 Sep"
-    },
-    {
-        "institution": "Osaka University",
-        "program": "Economics, Economics and Management",
-        "date": "2010 Apr - 2014 Mar"
-    },
-    {
         "institution": "Wilfrid Laurier University",
         "program": "Computer Science",
-        "date": "2020 Sep - 2025 Apr"
+        "date": "Sep 2020 - Apr 2025"
     },
 ]
 
