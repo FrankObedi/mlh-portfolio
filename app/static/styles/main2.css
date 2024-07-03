@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+  
+html {
+    scroll-behavior: smooth;
+}
+
+
+p, ul, li, a{
+    cursor: url('/static/img/custom-cursor.png'),auto;
+}
+
+/* define some colors */
+:root {
+    --mlh-yellow: #F5B92A;
+    --mlh-yellow-low: #f5b82a28;
+    --mlh-yellow-low2: #f5b82a17;
+    --light-blue: #38B6FF;
+    --light-blue-low: #38b6ffcb;
+    --mlh-blue: #004AAD;
+    --mlh-blue-low: #004AAD28; 
+    --mlh-blue-low2: #004bad13; 
+    --text-grey: #d3d3d3;   
+    --text-grey-low: #d3d3d328;   
+    --text-grey-low2: #d3d3d317;   
+}
+
+body {
+    background-color: #000000;
+    font-family: "Roboto", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    min-height: 100vh;
+    background: url('/static/img/background3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    cursor: url('/static/img/custom-cursor.png'),auto;
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000000e5;
+    z-index: -1;
+}
+
+.nav-bar{
+    width: 95vw;
+    color: white;
+    max-width: 800px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--text-grey-low2);
+    border-radius: 50px;
+    padding-right: 2rem;
+}
+
+nav a, summary{
+    cursor: url('/static/img/custom-cursor-2.png'),pointer;
+}
+
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.nav-logo img {
+    width: 140px;
+    border: 1px solid  var(--mlh-yellow-low);
+    border-radius: 50px;
+    padding: 10px 25px;
+}
+
+.nav-list{
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    
+    
+    min-width: 70%;
+}
+
+.nav-list li{
+    position: relative;
+}
+
+
+.nav-list li a{
+    color: var(--light-blue-low);
+    transition: all 0.3s ease;
+}
+.nav-list li a:hover{
+    color: var(--light-blue)
+}
+
+nav .socials{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .socials a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ui-container{
+    position: relative;
+    max-width: 1000px;
+    max-height: 800px;
+    width: 95vw;
+    min-height: 600px;
+    border: 1px solid var(--mlh-yellow-low);
+    background: var(--mlh-blue-low2);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column; 
+}
+
+/* UI container edge design elements */
+.edge-rect{
+    background: var(--mlh-yellow);
+    position: absolute;    
+}
+
+.top-left-edge::before, .top-right-edge::before,
+.bottom-left-edge::before, .bottom-right-edge::before{
+    content: '';
+    position: absolute;
+    background-color: var(--mlh-yellow);
+}
+
+.top-left-edge, .top-right-edge{
+    top: 0;
+    width: 6px;
+    height: 20px;
+}
+
+.bottom-left-edge, .bottom-right-edge{
+    bottom: 0;
+    width: 6px;
+    height: 20px;
+}
+
+.top-left-edge::before, .top-right-edge::before{
+    top: -3px;
+    width: 20px;
+    height: 6px;
+}
+
+.bottom-left-edge::before, .bottom-right-edge::before{
+    bottom: -3px;
+    width: 20px;
+    height: 6px;
+}
+
+.top-left-edge, .bottom-left-edge{
+    left: -3px;    
+}
+
+.top-right-edge, .bottom-right-edge{
+    right: -3px;    
+}
+
+.top-right-edge::before, .bottom-right-edge::before{
+    right: 0;
+}
+
+/* Content styles */
+.content-container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 15px;
+    gap: 1.5rem;
+}
+
+.left-pane-container .heading, .right-pane-container .heading{
+    margin-bottom: 1rem;
+}
+
+.left-pane-container .heading{
+    color: var(--mlh-yellow);
+    background-color: #f5b82a28;
+    border-right: 10px solid var(--mlh-yellow);
+    border-left: 10px solid var(--mlh-yellow);
+    padding: 0 2px 0;
+}
+
+.left-pane-container .heading h2, .pane-container .heading h2{
+    padding: 4px 4px 4px 10px;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-family: sans-serif;
+}
+
+.left-pane-container .profile-img{
+    max-width: 341px;
+    max-height: 450px;    
+    background: var(--mlh-blue-low);
+}
+
+.left-pane-container .img-card{
+    border: 1px solid var(--mlh-yellow);
+    display: flex;
+    flex-direction: column;
+}
+
+.left-pane-container .card-title{
+    background: var(--mlh-yellow);
+    padding: 10px 0;
+}
+
+.left-pane-container .card-title{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+.pane-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem
+}
+
+.pane-content .heading{
+    background-color: var(--mlh-yellow);
+    width: 40%;
+    min-width: 250px;
+    position: relative;
+    clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
+    margin-bottom: -1px;
+}
+
+.pane-content .heading h2{
+    padding-left: 25px;
+}
+
+.pane-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.pane-text{
+    background: var(--mlh-blue-low);
+    border-top: 1px solid var(--mlh-yellow);
+    padding: 25px;
+    color: #ffffff;
+    height: 100%;
+}
+
+.pane-text h2{
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 10px;
+}
+
+.pane-text h2::before{
+    content: '';
+    width: 14px;
+    height: 14px;
+    top: 7px;
+    left: 0;
+    position: absolute;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    background: white;
+}
+
+.pane-text p{
+    text-align: left;
+    font-size: 1.3rem;
+    color: var(--light-blue-low);
+    padding-left: 2rem;
+    max-width: 560px;
+    line-height: 2rem;
+}
+
+.pane-text .dates{
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-grey)
+}
+
+.even-heading{
+    align-self: flex-end;
+}
+
+
+.pane-content .even-heading{
+    clip-path: polygon(10% 1%, 100% 0, 100% 100%, 0 100%);
+    text-align: center;
+    padding-left: 0;
+}
+

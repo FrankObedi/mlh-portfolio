@@ -1,0 +1,103 @@
+:root {
+    --mlh-yellow: #F5B92A;
+    --mlh-yellow-low: #f5b82a28;
+    --mlh-yellow-low2: #f5b82a17;
+    --light-blue: #38B6FF;
+    --light-blue-low: #38b6ffcb;
+    --mlh-blue: #004AAD;
+    --mlh-blue-low: #004AAD28; 
+    --mlh-blue-low2: #004bad13; 
+    --text-grey: #d3d3d3;   
+    --text-grey-low: #d3d3d328;   
+    --text-grey-low2: #d3d3d317;   
+}
+
+.ui-container{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* min-height: 500px; */
+    justify-content: center;
+}
+
+.left-pane-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.content-container{
+    align-items: center;
+    grid-template-columns: 1fr 2fr;
+}
+
+
+.pane-text{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.hobby-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    min-height: 300px;
+    border-radius: 20px;
+    border: 2px solid var(--mlh-yellow);
+    background-image: url('/static/img/canoeing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(.5, 1.8, 0.5, 0.9);
+}
+
+.hobby-image::before{
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 80px;
+    height: 10px;
+    background: var(--mlh-yellow);
+    clip-path: polygon(10px 0, 70px 0, 100% 100%, 0% 100%);
+}
+
+.hobby-image::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 80px;
+    height: 10px;
+    background: var(--mlh-yellow);
+    clip-path: polygon(0 0, 100% 0, 70px 100%, 10% 100%);
+}
+
+details{
+    background: var(--text-grey-low2);
+    border: 1px solid  var(--mlh-yellow-low);
+    padding: 0.2rem 0.5rem;
+}
+
+summary {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    padding: 5px;
+}
+
+summary::before {
+    content: "►";
+    display: inline-block;
+    margin-right: 7px;
+    transition: transform 0.2s;
+    font-size: 1rem
+}
+
+details[open] summary::before {
+    content: "▼";
+}

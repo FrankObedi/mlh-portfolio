@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block styleSheet %}
+<link lang="sass" rel="stylesheet" href="./static/styles/experience.css" />
+{% endblock %}
+{% block leftPane %}
+<div class="left-pane-container">
+    <div class="current">
+        <p><strong>currently</strong></p>
+        <img src="./static/img/logo.svg" alt="MLH Fellowship logo" />
+        <h2>I am currently an MLH Fellow on the Production Enginerring Track</h2>
+       
+    </div>
+</div>
+{% endblock %} {% block rightPane %} {% block paneContent %}
+<div class="pane-content">
+    <div class="title">
+        <p><strong>I previously Internship at these places:</strong></p>
+    </div>
+    <div class="experiences">
+        {% for experience in work_experiences %}
+        <div class="experience-card">
+            <p class="company">{{ experience["company"] }}</p>
+            <img src="{{ experience['image_url'] }}" alt="experience['company'] logo"/>
+            <p class="position"><strong>{{ experience["position"] }}</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% endblock %}
