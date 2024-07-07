@@ -63,17 +63,16 @@ education = [
     },
 ]
 
-@app.route('/')
-def index():    
-    return render_template('index.html', title="MLH Fellow", work_experiences=work_experiences, hobbies=hobbies, education = education, url=os.getenv("URL"))
+# @app.route('/')
+# def index():    
+#     return render_template('index.html', title="MLH Fellow", work_experiences=work_experiences, hobbies=hobbies, education = education, url=os.getenv("URL"))
+@app.route("/")
+def index():
+    return render_template("index.html", title = "About Me", url=os.getenv("URL"))
 
 @app.route("/hobbies")
 def hobby_page():
     return render_template("hobbies.html", title = "My Hobbies", hobbies=hobbies, url=os.getenv("URL"))
-
-@app.route("/main")
-def main_page():
-    return render_template("main.html", title = "About Me", url=os.getenv("URL"))
 
 @app.route("/experience")
 def experience_page():
