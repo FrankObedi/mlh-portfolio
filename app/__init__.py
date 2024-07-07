@@ -78,7 +78,7 @@ def hobby_page():
 def experience_page():
     return render_template("experience.html", title = "Experience", work_experiences=work_experiences, url=os.getenv("URL"))
 
-@app.route("/map")
+@app.route("/travel-map")
 def map():
     return render_template("map.html", title = "My Travel Map", url=os.getenv("URL"))
 
