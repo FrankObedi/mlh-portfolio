@@ -1,22 +1,29 @@
-{% extends "index.html" %}
-{% block title %}{{ title }}{% endblock %}
-{% block proile %}
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/frank.jpg" alt="Satoshi's profile">
-        </div>
-        <h1>{{ title }}</h1>
-    </div>
+{% extends "main.html" %}
+{% block styleSheet %}
+<link lang="sass" rel="stylesheet" href="./static/styles/hobbies.css" />
 {% endblock %}
-{% block content %}
-    <div class="hobby container">
-        <ul>
-            {% for hobby in hobbies %}
-                <li class="card">
-                    <img src="{{ hobby['img_path'] }}" alt="{{ hobby['img_alt_text'] }}"/>
-                    <span class="description">{{ hobby["description"] }}</span>
-                </li>
-            {% endfor %}
-        </ul>
+
+{% block leftPane %}
+<div class="left-pane-container">
+    <div class="hobby-image"></div>
+</div>
+{% endblock %} {% block rightPane %} {% block paneContent %}
+<div class="pane-content">
+    <div class="heading">
+        <h2>My Hobbies</h2>
     </div>
-{% endblock%}
+    <div class="pane-text">
+        {% for hobby in hobbies %}
+        <details name="hobbies" data-image-url="{{ hobby['img_url'] }}" {% if loop.index==1 %}open{% endif %}>
+            <summary>{{ hobby['title'] }}</summary>
+            <div class="detial-content">
+                <p class="description">{{ hobby["description"] }}</p>
+            </div>
+        </details>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% endblock %}
+{% block Scripts %}
+<script src="../static/scritps/hobbies.js"></script>
+{% endblock %}

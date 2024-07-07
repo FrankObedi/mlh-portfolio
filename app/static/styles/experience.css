@@ -1,0 +1,111 @@
+:root {
+    --mlh-yellow: #F5B92A;
+    --mlh-yellow-low: #f5b82a28;
+    --mlh-yellow-low2: #f5b82a17;
+    --light-blue: #38B6FF;
+    --light-blue-low: #38b6ffcb;
+    --mlh-blue: #004AAD;
+    --mlh-blue-low: #004AAD28; 
+    --mlh-blue-low2: #004bad13; 
+    --text-grey: #d3d3d3;   
+    --text-grey-low: #d3d3d328;   
+    --text-grey-low2: #d3d3d317;   
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    color: white;
+    min-height: 400px;
+}
+
+.left-pane-container{
+    display: flex;
+}
+
+.current{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--mlh-blue-low);
+    padding: 2rem 2rem 2rem 3rem;
+    border-radius: 15px;
+    height: 100%;
+    flex: 1;
+}
+
+.current img{
+    max-width: 220px;
+}
+
+.current h2{
+    font-size: 2rem;
+}
+
+.current p{
+    position: relative;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    background: var(--mlh-yellow);
+    border-radius: 15px;
+    width: max-content;
+    padding: 7px 15px;
+    color: #000000;
+}
+
+.title{
+    background: var(--mlh-yellow-low);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.pane-content{
+    gap: 1.5rem;
+}
+
+.experiences{
+    display: flex;
+    flex: 1;
+    gap: 0.8rem;
+}
+
+.experience-card{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    width: 100%;
+    
+}
+
+.experience-card img{
+    max-width: 150px;
+    align-self: center;
+}
+
+.experience-card .company{
+    position: relative;
+    top: -15px;
+    left: -15px;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    background-color: var(--text-grey-low);
+    width: max-content;
+    min-width: 50%;
+    padding: 7px 25px 4px 0;
+    border-top-left-radius: 15px;
+    text-align: center;
+}
+
+.experience-card .position{
+    align-self: center;
+}
+
+.experience-card:nth-child(odd){
+    background: var(--mlh-yellow-low);    
+}
+
+.experience-card:nth-child(even){
+    background: var(--mlh-blue-low);    
+}
