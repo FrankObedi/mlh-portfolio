@@ -1,11 +1,36 @@
-import os
+import os, datetime
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+from peewee import *
+from playhouse.shortcuts import model_to_dict
 
 
 load_dotenv()
 app = Flask(__name__)
 
+mydb = MySQLDatabase(os.getenv('MYSQL_DATABASE'),
+                     user=os.getenv("MYSQL_USER"),
+                     password=os.getenv("MYSQL_PASSWORD"),
+                     host=os.getenv("MYSQL_HOST"),
+                     port=3306)
+
+print(mydb)
+
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
+
+
+# Website content
 work_experiences = [
     {
         "position": "Web Dev Intern",
@@ -63,9 +88,7 @@ education = [
     },
 ]
 
-# @app.route('/')
-# def index():    
-#     return render_template('index.html', title="MLH Fellow", work_experiences=work_experiences, hobbies=hobbies, education = education, url=os.getenv("URL"))
+
 @app.route("/")
 def index():
     return render_template("index.html", title = "About Me", url=os.getenv("URL"))
@@ -81,4 +104,48 @@ def experience_page():
 @app.route("/travel-map")
 def map():
     return render_template("map.html", title = "My Travel Map", url=os.getenv("URL"))
+
+# POST route to add a timeline post
+@app.route('/api/timeline_post', methods=['POST'])
+def post_time_line_post():
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+
+    return model_to_dict(timeline_post)
+
+# GET rout to retrieve all timeline posts ordered by created_at descending
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_post():
+    return {
+        'timeline_posts': [
+            model_to_dict(p)
+            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
+# DELETE rout to delete a timeline posts by id
+@app.route('/api/timeline_post', methods=['DELETE'])
+def delete_time_line_post():
+    id = request.form['id']
+    try:
+        timeline_post = TimelinePost.get(TimelinePost.id==id)        
+        deleted_post = model_to_dict(timeline_post)       
+        timeline_post.delete_instance()
+        return deleted_post
+    
+    except DoesNotExist:
+        print("No matching record found.")
+        return {
+            "Error": "Failed to delete post. Post not found"
+        }
+
+@app.route('/api/timeline_post/delete_all', methods=['DELETE'])
+def delete_all_time_line_post():
+    query = TimelinePost.delete()
+    query.execute()
+    return{
+        "message":"deleted all records"
+    }
 
