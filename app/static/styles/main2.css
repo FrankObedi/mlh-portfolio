@@ -76,7 +76,7 @@ nav{
     padding-right: 2rem;
 }
 
-nav a, summary{
+nav a, summary, button{
     cursor: url('/static/img/custom-cursor-2.png'),pointer;
 }
 
@@ -130,16 +130,16 @@ nav .socials a{
     justify-content: center;
 }
 .ui-container{
+    display: flex;
+    flex-direction: column;
     position: relative;
     max-width: 1000px;
-    max-height: 800px;
     width: 95vw;
     min-height: 600px;
     border: 1px solid var(--mlh-yellow-low);
     background: var(--mlh-blue-low2);
     border-radius: 24px;
-    display: flex;
-    flex-direction: column; 
+    margin-bottom: 2rem;
 }
 
 /* UI container edge design elements */
@@ -323,3 +323,15 @@ nav .socials a{
     padding-left: 0;
 }
 
+
+@media screen and (max-width: 800px) {
+    .ui-container{
+        max-height: unset;
+        margin-bottom: 2rem;
+    }
+
+    .content-container{
+        display: flex;
+        flex-direction: column;
+    }
+}

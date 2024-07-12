@@ -105,6 +105,11 @@ def experience_page():
 def map():
     return render_template("map.html", title = "My Travel Map", url=os.getenv("URL"))
 
+@app.route("/timeline")
+def timeline():
+    return render_template('timeline.html', title='Timeline')
+
+
 # POST route to add a timeline post
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
@@ -148,4 +153,5 @@ def delete_all_time_line_post():
     return{
         "message":"deleted all records"
     }
+
 
