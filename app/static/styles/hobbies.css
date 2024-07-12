@@ -46,6 +46,7 @@
     justify-content: center;
     position: relative;
     min-height: 300px;
+    width: 300px;
     border-radius: 20px;
     border: 2px solid var(--mlh-yellow);
     background-image: url('/static/img/canoeing.jpg');

@@ -1,0 +1,39 @@
+{% extends "index.html" %} {% block styleSheet %}
+<link lang="sass" rel="stylesheet" href="./static/styles/timeline.css" />
+{% endblock %} {% block leftPane %}
+<div class="left-pane-container">
+  <div class="heading">
+    <h2>Create a Post</h2>
+  </div>
+  <form id="form">
+    <div class="form-user-info">
+      <input id="name" name="name" type="text" placeholder="Enter name" required />
+      <input id="email" name="email" type="email" placeholder="Enter email" required />
+    </div>
+    <textarea
+      name="content"
+      rows="7"
+      cols="10"
+      placeholder="Enter post content"
+      required
+    ></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div> 
+{% endblock %} 
+{% block rightPane %}
+<div class="pane-container">
+  {% block paneContent %}
+  
+
+  <div class="pane-content">
+    <div class="heading even-heading">
+      <h2>Timeline Posts</h2>
+    </div>
+    <div class="pane-text"></div>
+  </div>
+  {% endblock %}
+</div>
+{% endblock %} {% block Scripts %}
+<script src="../static/scritps/timeline.js"></script>
+{% endblock %}
