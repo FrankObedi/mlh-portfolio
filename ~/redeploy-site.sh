@@ -4,7 +4,6 @@ tmux kill-server
 git fetch && git reset origin/main --hard
 source python3-virtualenv/bin/activate
 pip install -r requirements.txt
-  
 # start tmux session
 SESSION=dev
 tmux new-session -d -s $SESSION
