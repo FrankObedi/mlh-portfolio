@@ -19,7 +19,7 @@ async function getPosts(){
             noPostElement.classList.add('no-posts-found')
 
             const noPostMessageElement = document.createElement('h2')
-            noPostMessageElement.textContent = "There are no posts yets, make one with the form above"
+            noPostMessageElement.textContent = "No posts yet. You can start one using the form. 😊"
 
             noPostElement.appendChild(noPostMessageElement)
             container.appendChild(noPostElement)
