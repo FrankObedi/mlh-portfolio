@@ -32,7 +32,7 @@ class TestTimelinePost(unittest.TestCase):
 
         posts = [
             model_to_dict(p)
-            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+            for p in TimelinePost.select()
         ]
         assert model_to_dict(first_post)["id"] == posts[0]["id"]
         assert model_to_dict(second_post)["id"] == posts[1]["id"]
