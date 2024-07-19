@@ -1,4 +1,4 @@
-import os, datetime
+import os, datetime, re
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
@@ -116,12 +116,35 @@ def timeline():
 # POST route to add a timeline post
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-    name = request.form['name']
-    email = request.form['email']
-    content = request.form['content']
-    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+    
+      
+    try:
+        # Extract the form parameters 
+        form_data = request.form.to_dict()
 
-    return model_to_dict(timeline_post)
+        assert "name" in form_data, "Invalid name"
+        assert "email" in form_data, "Invalid email"
+        assert "content" in form_data, "Invalid content"
+
+        # validate name
+        name = request.form['name']
+        assert len(name) > 0, "Invalid name"
+        assert name.isspace() == False, "Invalid name"
+
+        # validate email
+        email = request.form['email']
+        assert re.fullmatch(r"[^@]+@[^@]+\.[^@]+",email), "Invalid email"
+
+        # validate content
+        content = request.form['content']
+        assert len(content) > 0, "Invalid content"
+        assert content.isspace() == False, "Invalid content"
+
+        timeline_post = TimelinePost.create(name=name, email=email, content=content)
+
+        return model_to_dict(timeline_post)
+    except AssertionError as e:
+        return f"<p>{e}</p>", 400
 
 # GET rout to retrieve all timeline posts ordered by created_at descending
 @app.route('/api/timeline_post', methods=['GET'])
@@ -134,9 +157,9 @@ def get_time_line_post():
     }
 
 # DELETE rout to delete a timeline posts by id
-@app.route('/api/timeline_post', methods=['DELETE'])
-def delete_time_line_post():
-    id = request.form['id']
+@app.route('/api/timeline_post/<id>', methods=['DELETE'])
+def delete_time_line_post(id):
+    
     try:
         timeline_post = TimelinePost.get(TimelinePost.id==id)        
         deleted_post = model_to_dict(timeline_post)       
@@ -147,6 +170,10 @@ def delete_time_line_post():
         print("No matching record found.")
         return {
             "Error": "Failed to delete post. Post not found"
+        }
+    except AssertionError:
+        return {
+            "Error": "Invalid post ID. ID must greater than or eqaul to 1"
         }
 
 @app.route('/api/timeline_post/delete_all', methods=['DELETE'])
