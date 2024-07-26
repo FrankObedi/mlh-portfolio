@@ -29,7 +29,7 @@ services:
     volumes:
       - nginx_secrets:/etc/letsencrypt
       - ./user_conf.d:/etc/nginx/user_conf.d
-    depends_one:
+    depends_on:
       - myportfolio
 
 volumes:
