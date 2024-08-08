@@ -1,7 +1,7 @@
 let topBar = document.querySelector('.top-bar')
 let midBar = document.querySelector('.mid-bar')
 let bottomBar = document.querySelector('.bottom-bar')
-let nav = document.querySelector('.menu-bar')
+let nav = document.querySelector('.nav-list')
 document.querySelector('.nav-toggle').addEventListener('click', ()=>{
     topBar.classList.toggle('rotate')
     bottomBar.classList.toggle('rotate')
