@@ -98,10 +98,12 @@ nav a, summary, button{
 .nav-list{
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    
-    
+    gap: 2.5rem;   
     min-width: 70%;
+}
+
+.nav-list.visible{
+    display: flex;
 }
 
 .nav-list li{
@@ -114,7 +116,7 @@ nav a, summary, button{
     transition: all 0.3s ease;
 }
 .nav-list li a:hover{
-    color: var(--light-blue)
+    color: var(--light-blue);
 }
 
 nav .socials{
@@ -141,6 +143,41 @@ nav .socials a{
     border-radius: 24px;
     margin-bottom: 2rem;
 }
+
+/* Responsive nav toggle icon */
+.nav-toggle{
+    position: relative;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    z-index: 1000;
+}
+
+.nav-toggle span {
+    width: 30px;
+    height: 3px;
+    border-radius: 0.5rem;
+    background-color: rgb(248 185 42);
+    transition: all 0.3s;
+}
+
+.top-bar.rotate {
+    transform: translateY(17px) translateX(-10px) rotate(50deg);
+    transform-origin: right;
+    margin-bottom: 0;
+}
+.bottom-bar.rotate{
+    transform: rotate(-45deg);
+    transform-origin: left;
+    margin-bottom: 0;
+}
+
+.mid-bar.hidden{
+    opacity: 0;
+}
+
 
 /* UI container edge design elements */
 .edge-rect{
@@ -323,6 +360,45 @@ nav .socials a{
     padding-left: 0;
 }
 
+@media screen and (max-width: 840px){
+    .nav-toggle{
+        display: flex;
+    }
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 20%;
+        z-index: 10;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .nav-list::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000f0;
+    }
+
+    .nav-list li a{
+        font-size: 1.5rem;
+    }
+
+    .nav-list li a:hover{
+        width: 100%;
+        padding: 10px;
+        background: var(--mlh-yellow-low);
+        border: 0 2px 0 2px var(var(--mlh-yellow))
+    }
+}
 
 @media screen and (max-width: 800px) {
     .ui-container{
@@ -335,3 +411,4 @@ nav .socials a{
         flex-direction: column;
     }
 }
+
