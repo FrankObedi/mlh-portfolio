@@ -7,7 +7,34 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run Tests
+    env:
+      TESTING: true
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9.19'
+
+      - name: Setup Python Virtual Environment
+        run: python -m venv python3-virtualenv
+
+      - name: Install Dependancies
+        run: python3-virtualenv/bin/pip install -r requirements.txt
+
+      - name: Run Tests
+        run: ./run_test.sh
+      - name: Send notification if tests fail
+        if: failure()  # This step will run only if the Run tests step fails
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Testing Failed"
+        
   deploy:
+    needs: test # ensure all tests are successful before deploying
     name: "Deploy to VPS"
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +59,11 @@ jobs:
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh'
 
       - name: Print container status
-        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
+        run: 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
+
+      - name: Send notification if deployment fail
+        if: failure()  # This step will run only if the Run tests step fails
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"
         
       - name: Send Discord notice
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
