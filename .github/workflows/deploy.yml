@@ -59,7 +59,7 @@ jobs:
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh'
 
       - name: Print container status
-        run: 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
 
       - name: Send notification if deployment fail
         if: failure()  # This step will run only if the Run tests step fails
