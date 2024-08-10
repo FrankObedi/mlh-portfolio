@@ -109,3 +109,14 @@
 .experience-card:nth-child(even){
     background: var(--mlh-blue-low);    
 }
+
+@media screen and (max-width: 840px){
+    .content-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .current p{
+        align-self: flex-end;
+    }
+}

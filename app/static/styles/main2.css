@@ -270,9 +270,6 @@ nav .socials a{
 .left-pane-container .card-title{
     background: var(--mlh-yellow);
     padding: 10px 0;
-}
-
-.left-pane-container .card-title{
     text-align: center;
     text-transform: uppercase;
     font-size: 1.7rem;
@@ -398,6 +395,7 @@ nav .socials a{
         background: var(--mlh-yellow-low);
         border: 0 2px 0 2px var(var(--mlh-yellow))
     }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -409,6 +407,42 @@ nav .socials a{
     .content-container{
         display: flex;
         flex-direction: column;
+    }
+
+    .left-pane-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-pane-container .img-card {
+        border: none;
+        align-items: center;
+        align-self: center;
+    }
+
+    .left-pane-container .profile-img {
+        border: 1px solid var(--mlh-yellow);
+        border-radius: 70px;
+        max-height: 390px;
+    }
+
+    .left-pane-container .card-title {
+        background: none;
+        position: relative;
+        margin-top: 7px;
+        width: 100%;
+        color: var(--mlh-yellow);
+        font-size: 20px;
+    }
+
+    .left-pane-container .card-title::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 30%;
+        left: 37%;
+        height: 1px;
+        background: var(--mlh-yellow);
     }
 }
 
