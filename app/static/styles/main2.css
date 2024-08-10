@@ -253,6 +253,7 @@ nav .socials a{
     text-transform: uppercase;
     font-size: 1.4rem;
     font-family: sans-serif;
+    text-align: center;
 }
 
 .left-pane-container .profile-img{
